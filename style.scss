@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Bebas+Neue&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+:root {
+    --scissors-gradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    --paper-gradient: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    --rock-gradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    --lizard-gradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    --cyan: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+
+    --dark-text: hsl(229, 25%, 31%);
+    --score-text: hsl(229, 64%, 46%);
+    --header-outline: hsl(217, 16%, 45%);
+
+    --main-bg: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+
+    --button-size: 130px;
+    --button-border: 15px;
+    --triangle-size: 220px;
+}
+
+body {
+    background: var(--main-bg);
+    padding: 2em;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    main {
+        
+        .head {
+            width: 100%;
+            border-radius: 7px;
+            border: 3px solid var(--header-outline);
+            padding: .8em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .mode {
+                list-style: none;
+                
+                p {
+                    color: white;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    font-size: 1.5rem;
+                    line-height: .8;
+                }
+            }
+
+            .score-container {
+                background: white;
+                padding: .5em 1.5em;
+                border-radius: 5px;
+                position: relative;
+                cursor: default;
+
+                #reset {
+                    position: absolute;
+                    width: 20px;
+                    height: 20px;
+                    background: rgb(209, 209, 209);
+                    border: none;
+                    top: 0;
+                    right: 0;
+                    transform: translate(50%, -50%);
+                    padding: .2em;
+                    font-size: .7rem;
+                    border-radius: 50%;
+                    color: var(--dark-text);
+                    cursor: pointer;
+                    transition: .2s ease;
+                    opacity: 0;
+
+                    &:focus {
+                        opacity: 1;
+                    }
+                }
+
+                &:hover #reset {
+                    opacity: 1;
+                }
+
+                h2 {
+                    font-size: .7rem;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    color: var(--score-text);
+                }
+
+                .score {
+                    font-weight: 800;
+                    font-size: 4rem;
+                    text-align: center;
+                    display: block;
+                    line-height: .8;
+                    color: var(--dark-text);
+                }
+            }
+        }
+
+        .triangle {
+            width: max-content;
+            margin: 8em auto;
+            position: relative;
+
+            &>img {
+                width: var(--triangle-size);
+            }
+
+            .container {
+                position: absolute;
+
+                button {
+                    width: var(--button-size);
+                    height: var(--button-size);
+                    border-radius: 50%;
+                    border: none;
+                    cursor: pointer;
+                    position: relative;
+                    transition: transform .1s;
+
+                    &:hover,
+                    &:focus {
+                        transform: scale(1.03);
+                        outline: none;
+                    }
+
+                    .inner {
+                        position: absolute;
+                        inset: var(--button-border);
+                        background: white;
+                        border-radius: 50%;
+                        display: grid;
+                        place-items: center;
+                        box-shadow: inset 2px 5px #0003;
+                    }
+                }
+            }
+            .paper-container {
+                top: 0;
+                left: 0;
+                transform: translate(-40%, -40%);
+                
+                button {
+                    background: var(--paper-gradient);
+                    box-shadow: 0 5px rgb(48, 48, 187);
+                }
+            }
+            .scissors-container {
+                top: 0;
+                right: 0;
+                transform: translate(40%, -40%);
+
+                button {
+                    background: var(--scissors-gradient);
+                    box-shadow: 0 5px rgb(170, 131, 34);
+                }
+            }
+            .rock-container {
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 30%);
+
+                button {
+                    background: var(--rock-gradient);
+                    box-shadow: 0 5px rgb(160, 1, 1);
+                }
+            }
+
+        }
+    }
+}
+
+main {
+    .rules {
+        padding: .4em 0;
+        width: 100px;
+        background: none;
+        border: 2px solid white;
+        color: white;
+        text-transform: uppercase;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        opacity: .8;
+        margin: 0 auto;
+        display: block;
+        cursor: pointer;
+        transition: background-color .2s ease;
+
+        &:hover {
+            background-color: #fff1;
+        }
+    }
+
+    .modal {
+        position: absolute;
+        background: white;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 2em 0;
+        transition: transform .3s ease;
+        transform: translateY(100%);
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 2rem;
+            color: var(--dark-text);
+        }
+
+        #close {
+            border: none;
+            background: none;
+            width: 30px;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

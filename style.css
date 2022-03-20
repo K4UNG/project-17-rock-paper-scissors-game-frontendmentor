@@ -1,1 +1,258 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&family=Bebas+Neue&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+:root {
+  --scissors-gradient: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+  --paper-gradient: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  --rock-gradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  --lizard-gradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+  --cyan: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --dark-text: hsl(229, 25%, 31%);
+  --score-text: hsl(229, 64%, 46%);
+  --header-outline: hsl(217, 16%, 45%);
+  --main-bg: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --button-size: 130px;
+  --button-border: 15px;
+  --triangle-size: 220px;
+}
+
+body {
+  background: var(--main-bg);
+  padding: 2em;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body main .head {
+  width: 100%;
+  border-radius: 7px;
+  border: 3px solid var(--header-outline);
+  padding: .8em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .head .mode {
+  list-style: none;
+}
+
+body main .head .mode p {
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: .8;
+}
+
+body main .head .score-container {
+  background: white;
+  padding: .5em 1.5em;
+  border-radius: 5px;
+  position: relative;
+  cursor: default;
+}
+
+body main .head .score-container #reset {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #d1d1d1;
+  border: none;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  padding: .2em;
+  font-size: .7rem;
+  border-radius: 50%;
+  color: var(--dark-text);
+  cursor: pointer;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+  opacity: 0;
+}
+
+body main .head .score-container #reset:focus {
+  opacity: 1;
+}
+
+body main .head .score-container:hover #reset {
+  opacity: 1;
+}
+
+body main .head .score-container h2 {
+  font-size: .7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--score-text);
+}
+
+body main .head .score-container .score {
+  font-weight: 800;
+  font-size: 4rem;
+  text-align: center;
+  display: block;
+  line-height: .8;
+  color: var(--dark-text);
+}
+
+body main .triangle {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 8em auto;
+  position: relative;
+}
+
+body main .triangle > img {
+  width: var(--triangle-size);
+}
+
+body main .triangle .container {
+  position: absolute;
+}
+
+body main .triangle .container button {
+  width: var(--button-size);
+  height: var(--button-size);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: -webkit-transform .1s;
+  transition: -webkit-transform .1s;
+  transition: transform .1s;
+  transition: transform .1s, -webkit-transform .1s;
+}
+
+body main .triangle .container button:hover, body main .triangle .container button:focus {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  outline: none;
+}
+
+body main .triangle .container button .inner {
+  position: absolute;
+  inset: var(--button-border);
+  background: white;
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -webkit-box-shadow: inset 2px 5px #0003;
+          box-shadow: inset 2px 5px #0003;
+}
+
+body main .triangle .paper-container {
+  top: 0;
+  left: 0;
+  -webkit-transform: translate(-40%, -40%);
+          transform: translate(-40%, -40%);
+}
+
+body main .triangle .paper-container button {
+  background: var(--paper-gradient);
+  -webkit-box-shadow: 0 5px #3030bb;
+          box-shadow: 0 5px #3030bb;
+}
+
+body main .triangle .scissors-container {
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(40%, -40%);
+          transform: translate(40%, -40%);
+}
+
+body main .triangle .scissors-container button {
+  background: var(--scissors-gradient);
+  -webkit-box-shadow: 0 5px #aa8322;
+          box-shadow: 0 5px #aa8322;
+}
+
+body main .triangle .rock-container {
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 30%);
+          transform: translate(-50%, 30%);
+}
+
+body main .triangle .rock-container button {
+  background: var(--rock-gradient);
+  -webkit-box-shadow: 0 5px #a00101;
+          box-shadow: 0 5px #a00101;
+}
+
+main .rules {
+  padding: .4em 0;
+  width: 100px;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  opacity: .8;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+  -webkit-transition: background-color .2s ease;
+  transition: background-color .2s ease;
+}
+
+main .rules:hover {
+  background-color: #fff1;
+}
+
+main .modal {
+  position: absolute;
+  background: white;
+  inset: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  padding: 2em 0;
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+main .modal h2 {
+  text-transform: uppercase;
+  font-size: 2rem;
+  color: var(--dark-text);
+}
+
+main .modal #close {
+  border: none;
+  background: none;
+  width: 30px;
+  cursor: pointer;
+}
+
+main .modal #close img {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */
