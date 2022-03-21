@@ -2,7 +2,7 @@ const rules = document.querySelector('.rules');
 const modal = document.querySelector('.modal');
 const closeBtn = document.getElementById('close');
 
-const triangle = document.querySelector('.triangle');
+const triangle = document.querySelector('.shape');
 const triangleBtns = triangle.querySelectorAll('button');
 const triangleScore = document.querySelector('.score');
 const reset = document.getElementById('reset');
@@ -65,11 +65,11 @@ triangleBtns.forEach(btn => {
     btn.onclick = () => {
         you = btn.dataset.rank;
         house = Math.floor(Math.random() * 3);
-        displayTriangleResult(parseInt(you), parseInt(house));
+        displayResult(parseInt(you), parseInt(house));
     }
 });
 
-function displayTriangleResult(player, ai) {
+function displayResult(player, ai) {
     let result;
     let score = parseInt(getScore());
     if ((player + 1) % 3 === ai) {
@@ -103,12 +103,19 @@ function displayTriangleResult(player, ai) {
         resultText.style.opacity = '0';
         house.closest('.result').style.transform = 'unset';
         you.closest('.result').style.transform = 'unset';
+        you.parentElement.classList.remove('win');
+        house.parentElement.classList.remove('win');
     }
 
     setTimeout(() => {
         house.classList.add('shown');
 
         house.ontransitionend = () => {
+            if (result === 'you win') {
+                you.parentElement.classList.add('win');
+            } else if (result === 'you lose') {
+                house.parentElement.classList.add('win');
+            }
             setTimeout(() => {
                 if (document.body.clientWidth >= 800) {
                     house.closest('.result').style.transform = 'translateX(120px)';

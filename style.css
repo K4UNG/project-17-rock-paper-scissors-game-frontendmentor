@@ -127,7 +127,7 @@ body main .head .score-container .score {
   color: var(--dark-text);
 }
 
-body main .triangle {
+body main .shape {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -135,15 +135,15 @@ body main .triangle {
   position: relative;
 }
 
-body main .triangle > img {
+body main .shape > img {
   width: var(--triangle-size);
 }
 
-body main .triangle .container {
+body main .shape .container {
   position: absolute;
 }
 
-body main .triangle .container button {
+body main .shape .container button {
   width: var(--button-size);
   height: var(--button-size);
   border-radius: 50%;
@@ -156,13 +156,13 @@ body main .triangle .container button {
   transition: transform .15s, -webkit-transform .15s;
 }
 
-body main .triangle .container button:hover, body main .triangle .container button:focus {
-  -webkit-transform: scale(1.03);
-          transform: scale(1.03);
+body main .shape .container button:hover, body main .shape .container button:focus {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
   outline: none;
 }
 
-body main .triangle .container button .inner {
+body main .shape .container button .inner {
   position: absolute;
   inset: var(--button-border);
   background: white;
@@ -174,40 +174,40 @@ body main .triangle .container button .inner {
           box-shadow: var(--inner-shadow);
 }
 
-body main .triangle .paper-container {
+body main .shape .paper-container {
   top: 0;
   left: 0;
   -webkit-transform: translate(-40%, -40%);
           transform: translate(-40%, -40%);
 }
 
-body main .triangle .paper-container button {
+body main .shape .paper-container button {
   background: var(--paper-gradient);
   -webkit-box-shadow: var(--paper-side);
           box-shadow: var(--paper-side);
 }
 
-body main .triangle .scissors-container {
+body main .shape .scissors-container {
   top: 0;
   right: 0;
   -webkit-transform: translate(40%, -40%);
           transform: translate(40%, -40%);
 }
 
-body main .triangle .scissors-container button {
+body main .shape .scissors-container button {
   background: var(--scissors-gradient);
   -webkit-box-shadow: var(--scissors-side);
           box-shadow: var(--scissors-side);
 }
 
-body main .triangle .rock-container {
+body main .shape .rock-container {
   bottom: 0;
   left: 50%;
   -webkit-transform: translate(-50%, 30%);
           transform: translate(-50%, 30%);
 }
 
-body main .triangle .rock-container button {
+body main .shape .rock-container button {
   background: var(--rock-gradient);
   -webkit-box-shadow: var(--rock-side);
           box-shadow: var(--rock-side);
@@ -311,6 +311,54 @@ main .result-container .result .base {
   border-radius: 50%;
   margin: auto;
   position: relative;
+}
+
+main .result-container .result .base .pulse {
+  width: 350px;
+  height: 350px;
+  background: #fff2;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+}
+
+main .result-container .result .base.win .pulse {
+  -webkit-animation: 2s pulse ease-in-out infinite;
+          animation: 2s pulse ease-in-out infinite;
+}
+
+main .result-container .result .base .pulse:nth-child(2) {
+  -webkit-animation-delay: .5s;
+          animation-delay: .5s;
+}
+
+main .result-container .result .base .pulse:nth-child(3) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+main .result-container .result .base .pulse:nth-child(4) {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+@-webkit-keyframes pulse {
+  to {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  to {
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
 
 main .result-container .result .base .chosen {
@@ -496,6 +544,9 @@ main .result-container .result-text button:hover {
   }
   body main .result-container .result .base .chosen .circle {
     inset: calc(var(--button-border) * 1.3);
+  }
+  body main .result-container .result .base .chosen .circle img {
+    width: 80px;
   }
   body main .result-container .result-text {
     top: 50%;
