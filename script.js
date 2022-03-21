@@ -86,6 +86,7 @@ function displayResult(player, ai) {
     let result;
     let score = parseInt(getScore());
     if (triangle.classList.contains('five')) {
+      ai = Math.floor(Math.random() * 5);
 
         if ((player + 1) % 5 === ai || (player + 3) % 5 === ai) {
             result = 'you win';
