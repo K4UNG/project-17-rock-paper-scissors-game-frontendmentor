@@ -14,14 +14,18 @@
   --paper-gradient: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
   --rock-gradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
   --lizard-gradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
-  --cyan: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --spock-gradient: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
   --rock-side: 0 5px rgb(160, 1, 1);
   --paper-side: 0 5px rgb(48, 48, 187);
   --scissors-side: 0 5px rgb(170, 131, 34);
+  --lizard-side: 0 5px rgb(99, 21, 134);
+  --spock-side: 0 5px rgb(54, 129, 148);
   --inner-shadow: inset 2px 5px #0003;
   --rock-side-result: 0 5px rgb(160, 1, 1);
   --paper-side-result: 0 5px rgb(48, 48, 187);
   --scissors-side-result: 0 5px rgb(170, 131, 34);
+  --lizard-side-result: 0 5px rgb(99, 21, 134);
+  --spock-side-result: 0 5px rgb(54, 129, 148);
   --dark-text: hsl(229, 25%, 31%);
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
@@ -70,7 +74,7 @@ body main .head .mode p {
   color: white;
   font-weight: 400;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: .8;
 }
 
@@ -211,6 +215,115 @@ body main .shape .rock-container button {
   background: var(--rock-gradient);
   -webkit-box-shadow: var(--rock-side);
           box-shadow: var(--rock-side);
+}
+
+body main .shape .scissors-container-b {
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+body main .shape .scissors-container-b button {
+  width: calc(var(--button-size) - 25px);
+  height: calc(var(--button-size) - 25px);
+  background: var(--scissors-gradient);
+  -webkit-box-shadow: var(--scissors-side);
+          box-shadow: var(--scissors-side);
+}
+
+body main .shape .scissors-container-b button img {
+  width: 40px;
+}
+
+body main .shape .paper-container-b {
+  top: 30%;
+  right: 0%;
+  -webkit-transform: translate(55%, -40%);
+          transform: translate(55%, -40%);
+}
+
+body main .shape .paper-container-b button {
+  width: calc(var(--button-size) - 25px);
+  height: calc(var(--button-size) - 25px);
+  background: var(--paper-gradient);
+  -webkit-box-shadow: var(--paper-side);
+          box-shadow: var(--paper-side);
+}
+
+body main .shape .paper-container-b button img {
+  width: 40px;
+}
+
+body main .shape .rock-container-b {
+  bottom: 0;
+  right: 0;
+  -webkit-transform: translate(15%, 40%);
+          transform: translate(15%, 40%);
+}
+
+body main .shape .rock-container-b button {
+  width: calc(var(--button-size) - 25px);
+  height: calc(var(--button-size) - 25px);
+  background: var(--rock-gradient);
+  -webkit-box-shadow: var(--rock-side);
+          box-shadow: var(--rock-side);
+}
+
+body main .shape .rock-container-b button img {
+  width: 40px;
+}
+
+body main .shape .lizard-container-b {
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translate(-15%, 40%);
+          transform: translate(-15%, 40%);
+}
+
+body main .shape .lizard-container-b button {
+  width: calc(var(--button-size) - 25px);
+  height: calc(var(--button-size) - 25px);
+  background: var(--lizard-gradient);
+  -webkit-box-shadow: var(--lizard-side);
+          box-shadow: var(--lizard-side);
+}
+
+body main .shape .lizard-container-b button img {
+  width: 40px;
+}
+
+body main .shape .spock-container-b {
+  top: 30%;
+  left: 0;
+  -webkit-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
+}
+
+body main .shape .spock-container-b button {
+  width: calc(var(--button-size) - 25px);
+  height: calc(var(--button-size) - 25px);
+  background: var(--spock-gradient);
+  -webkit-box-shadow: var(--spock-side);
+          box-shadow: var(--spock-side);
+}
+
+body main .shape .spock-container-b button img {
+  width: 40px;
+}
+
+main .switch {
+  border: none;
+  background: none;
+  color: white;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  opacity: .9;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 main .rules {
@@ -466,6 +579,8 @@ main .result-container .result-text button:hover {
     --rock-side-result: 0 12px rgb(160, 1, 1);
     --paper-side-result: 0 12px rgb(48, 48, 187);
     --scissors-side-result: 0 12px rgb(170, 131, 34);
+    --lizard-side-result: 0 12px rgb(99, 21, 134);
+    --spock-side-result: 0 12px rgb(54, 129, 148);
     --inner-shadow: inset 4px 8px #0003;
   }
   body main .head .mode p {
@@ -477,6 +592,15 @@ main .result-container .result-text button:hover {
   }
   body main .head .score-container .score {
     font-size: 4rem;
+  }
+  body main .shape.five .container button {
+    width: calc(var(--button-size) - 45px);
+    height: calc(var(--button-size) - 45px);
+  }
+  body main .switch {
+    bottom: 20px;
+    left: 50px;
+    font-size: 1.5rem;
   }
   body main .rules {
     bottom: 30px;
@@ -537,6 +661,10 @@ main .result-container .result-text button:hover {
             order: -1;
     margin: 0;
     margin-bottom: 3em;
+  }
+  body main .result-container .result .base .pulse {
+    width: 450px;
+    height: 450px;
   }
   body main .result-container .result .base .chosen {
     width: calc(var(--button-size) * 1.3);

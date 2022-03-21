@@ -14,16 +14,20 @@
     --paper-gradient: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
     --rock-gradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
     --lizard-gradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
-    --cyan: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    --spock-gradient: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 
     --rock-side: 0 5px rgb(160, 1, 1);
     --paper-side: 0 5px rgb(48, 48, 187);
     --scissors-side: 0 5px rgb(170, 131, 34);
+    --lizard-side: 0 5px rgb(99, 21, 134);
+    --spock-side: 0 5px rgb(54, 129, 148);
     --inner-shadow: inset 2px 5px #0003;
 
     --rock-side-result: 0 5px rgb(160, 1, 1);
     --paper-side-result: 0 5px rgb(48, 48, 187);
     --scissors-side-result: 0 5px rgb(170, 131, 34);
+    --lizard-side-result: 0 5px rgb(99, 21, 134);
+    --spock-side-result: 0 5px rgb(54, 129, 148);
 
     --dark-text: hsl(229, 25%, 31%);
     --score-text: hsl(229, 64%, 46%);
@@ -68,7 +72,7 @@ body {
                     color: white;
                     font-weight: 400;
                     text-transform: uppercase;
-                    font-size: 1.5rem;
+                    font-size: 1.3rem;
                     line-height: .8;
                 }
             }
@@ -194,11 +198,109 @@ body {
                 }
             }
 
+            // bonus
+
+            .scissors-container-b {
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+                button {
+                    width: calc(var(--button-size) - 25px);
+                    height: calc(var(--button-size) - 25px);
+                    background: var(--scissors-gradient);
+                    box-shadow: var(--scissors-side);
+
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
+
+            .paper-container-b {
+                top: 30%;
+                right: 0%;
+                transform: translate(55%, -40%);
+
+                button {
+                    width: calc(var(--button-size) - 25px);
+                    height: calc(var(--button-size) - 25px);
+                    background: var(--paper-gradient);
+                    box-shadow: var(--paper-side);
+
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
+
+            .rock-container-b {
+                bottom: 0;
+                right: 0;
+                transform: translate(15%, 40%);
+
+                button {
+                    width: calc(var(--button-size) - 25px);
+                    height: calc(var(--button-size) - 25px);
+                    background: var(--rock-gradient);
+                    box-shadow: var(--rock-side);
+
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
+
+            .lizard-container-b {
+                bottom: 0;
+                left: 0;
+                transform: translate(-15%, 40%);
+
+                button {
+                    width: calc(var(--button-size) - 25px);
+                    height: calc(var(--button-size) - 25px);
+                    background: var(--lizard-gradient);
+                    box-shadow: var(--lizard-side);
+
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
+
+            .spock-container-b {
+                top: 30%;
+                left: 0;
+                transform: translate(-50%, -40%);
+
+                button {
+                    width: calc(var(--button-size) - 25px);
+                    height: calc(var(--button-size) - 25px);
+                    background: var(--spock-gradient);
+                    box-shadow: var(--spock-side);
+
+                    img {
+                        width: 40px;
+                    }
+                }
+            }
         }
     }
 }
 
 main {
+    .switch {
+        border: none;
+        background: none;
+        color: white;
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: .9;
+        font-size: 1rem;
+        cursor: pointer;
+    }
     .rules {
         padding: .4em 0;
         width: 100px;
@@ -425,6 +527,8 @@ main {
         --rock-side-result: 0 12px rgb(160, 1, 1);
         --paper-side-result: 0 12px rgb(48, 48, 187);
         --scissors-side-result: 0 12px rgb(170, 131, 34);
+        --lizard-side-result: 0 12px rgb(99, 21, 134);
+        --spock-side-result: 0 12px rgb(54, 129, 148);
 
         --inner-shadow: inset 4px 8px #0003;
     }
@@ -447,6 +551,21 @@ main {
                         font-size: 4rem;
                     }
                 }
+            }
+
+            .shape.five {
+                .container {
+                    button {
+                        width: calc(var(--button-size) - 45px);
+                        height: calc(var(--button-size) - 45px);
+                    }
+                }
+            }
+
+            .switch {
+                bottom: 20px;
+                left: 50px;
+                font-size: 1.5rem;
             }
 
             .rules {
@@ -504,6 +623,12 @@ main {
                     }
 
                     .base {
+
+                        .pulse {
+                            width: 450px;
+                            height: 450px;
+                        }
+
                         .chosen {
                             width: calc(var(--button-size) * 1.3);
                             height: calc(var(--button-size) * 1.3);
