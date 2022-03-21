@@ -15,9 +15,13 @@
   --rock-gradient: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
   --lizard-gradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
   --cyan: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+  --rock-side: 0 5px rgb(160, 1, 1);
+  --paper-side: 0 5px rgb(48, 48, 187);
+  --scissors-side: 0 5px rgb(170, 131, 34);
   --dark-text: hsl(229, 25%, 31%);
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
+  --dark-blue: hsl(238, 40%, 17%);
   --main-bg: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
   --button-size: 130px;
   --button-border: 15px;
@@ -105,6 +109,7 @@ body main .head .score-container h2 {
   font-weight: 400;
   text-transform: uppercase;
   color: var(--score-text);
+  font-weight: 700;
 }
 
 body main .head .score-container .score {
@@ -172,8 +177,8 @@ body main .triangle .paper-container {
 
 body main .triangle .paper-container button {
   background: var(--paper-gradient);
-  -webkit-box-shadow: 0 5px #3030bb;
-          box-shadow: 0 5px #3030bb;
+  -webkit-box-shadow: var(--paper-side);
+          box-shadow: var(--paper-side);
 }
 
 body main .triangle .scissors-container {
@@ -185,8 +190,8 @@ body main .triangle .scissors-container {
 
 body main .triangle .scissors-container button {
   background: var(--scissors-gradient);
-  -webkit-box-shadow: 0 5px #aa8322;
-          box-shadow: 0 5px #aa8322;
+  -webkit-box-shadow: var(--scissors-side);
+          box-shadow: var(--scissors-side);
 }
 
 body main .triangle .rock-container {
@@ -198,8 +203,8 @@ body main .triangle .rock-container {
 
 body main .triangle .rock-container button {
   background: var(--rock-gradient);
-  -webkit-box-shadow: 0 5px #a00101;
-          box-shadow: 0 5px #a00101;
+  -webkit-box-shadow: var(--rock-side);
+          box-shadow: var(--rock-side);
 }
 
 main .rules {
@@ -212,8 +217,12 @@ main .rules {
   border-radius: 8px;
   font-size: 1.2rem;
   opacity: .8;
-  margin: 0 auto;
   display: block;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   cursor: pointer;
   -webkit-transition: background-color .2s ease;
   transition: background-color .2s ease;
@@ -254,5 +263,126 @@ main .modal #close {
 
 main .modal #close img {
   width: 100%;
+}
+
+main .result-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: 7em 0;
+  position: relative;
+}
+
+main .result-container .result {
+  width: 40%;
+  text-align: center;
+}
+
+main .result-container .result .base {
+  width: calc(var(--button-size) - var(--button-border)*2);
+  height: calc(var(--button-size) - var(--button-border)*2);
+  background: var(--dark-blue);
+  border-radius: 50%;
+  margin: auto;
+  position: relative;
+}
+
+main .result-container .result .base .chosen {
+  width: var(--button-size);
+  height: var(--button-size);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, 50%) scale(0);
+          transform: translate(50%, 50%) scale(0);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+
+main .result-container .result .base .chosen.shown {
+  -webkit-transform: translate(50%, 50%) scale(1);
+          transform: translate(50%, 50%) scale(1);
+}
+
+main .result-container .result .base .chosen .circle {
+  position: absolute;
+  background: white;
+  inset: var(--button-border);
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  -webkit-box-shadow: inset 2px 5px #0003;
+          box-shadow: inset 2px 5px #0003;
+}
+
+main .result-container .result h2 {
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-top: 2em;
+}
+
+main .result-container .you .chosen {
+  background: var(--rock-gradient);
+  -webkit-box-shadow: var(--rock-side);
+          box-shadow: var(--rock-side);
+}
+
+main .result-container .house .chosen {
+  background: var(--scissors-gradient);
+  -webkit-box-shadow: var(--scissors-side);
+          box-shadow: var(--scissors-side);
+}
+
+main .result-container .result-text {
+  position: absolute;
+  top: 105%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  text-align: center;
+  opacity: 0;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+
+main .result-container .result-text h2 {
+  font-weight: 800;
+  text-transform: uppercase;
+  color: white;
+  font-size: 3.5rem;
+}
+
+main .result-container .result-text button {
+  border: none;
+  margin-top: .3em;
+  background: white;
+  padding: 1em 0 1.2em;
+  width: 100%;
+  border-radius: .5em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: var(--dark-text);
+  letter-spacing: 2px;
+  font-weight: 700;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

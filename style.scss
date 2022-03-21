@@ -16,9 +16,14 @@
     --lizard-gradient: linear-gradient(to top, hsl(261, 73%, 60%), hsl(261, 72%, 63%));
     --cyan: linear-gradient(to top, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
 
+    --rock-side: 0 5px rgb(160, 1, 1);
+    --paper-side: 0 5px rgb(48, 48, 187);
+    --scissors-side: 0 5px rgb(170, 131, 34);
+
     --dark-text: hsl(229, 25%, 31%);
     --score-text: hsl(229, 64%, 46%);
     --header-outline: hsl(217, 16%, 45%);
+    --dark-blue: hsl(238, 40%, 17%);
 
     --main-bg: radial-gradient(circle at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 
@@ -39,7 +44,7 @@ body {
     }
 
     main {
-        
+
         .head {
             width: 100%;
             border-radius: 7px;
@@ -99,6 +104,7 @@ body {
                     font-weight: 400;
                     text-transform: uppercase;
                     color: var(--score-text);
+                    font-weight: 700;
                 }
 
                 .score {
@@ -157,7 +163,7 @@ body {
                 
                 button {
                     background: var(--paper-gradient);
-                    box-shadow: 0 5px rgb(48, 48, 187);
+                    box-shadow: var(--paper-side);
                 }
             }
             .scissors-container {
@@ -167,7 +173,7 @@ body {
 
                 button {
                     background: var(--scissors-gradient);
-                    box-shadow: 0 5px rgb(170, 131, 34);
+                    box-shadow: var(--scissors-side);
                 }
             }
             .rock-container {
@@ -177,7 +183,7 @@ body {
 
                 button {
                     background: var(--rock-gradient);
-                    box-shadow: 0 5px rgb(160, 1, 1);
+                    box-shadow: var(--rock-side);
                 }
             }
 
@@ -196,8 +202,11 @@ main {
         border-radius: 8px;
         font-size: 1.2rem;
         opacity: .8;
-        margin: 0 auto;
         display: block;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
         cursor: pointer;
         transition: background-color .2s ease;
 
@@ -230,6 +239,114 @@ main {
 
             img {
                 width: 100%;
+            }
+        }
+    }
+}
+
+main {
+    .result-container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        margin: 7em 0;
+        position: relative;
+
+        .result {
+            width: 40%;
+            text-align: center;
+
+            .base {
+                width: calc(var(--button-size) - var(--button-border)*2);
+                height: calc(var(--button-size) - var(--button-border)*2);
+                background: var(--dark-blue);
+                border-radius: 50%;
+                margin: auto;
+                position: relative;
+
+                .chosen {
+                    width: var(--button-size);
+                    height: var(--button-size);
+                    border-radius: 50%;
+                    position: absolute;
+                    bottom: 50%;
+                    right: 50%;
+                    transform: translate(50%, 50%) scale(0);
+                    transition: transform .3s ease;
+
+                    &.shown {
+                        transform: translate(50%, 50%) scale(1);
+                    }
+
+                    .circle {
+                        position: absolute;
+                        background: white;
+                        inset: var(--button-border);
+                        border-radius: 50%;
+                        display: grid;
+                        place-items: center;
+                        box-shadow: inset 2px 5px #0003;
+                    }
+                }
+            }
+
+            h2 {
+                color: white;
+                font-weight: 400;
+                text-transform: uppercase;
+                font-size: 1rem;
+                letter-spacing: 1px;
+                word-spacing: 2px;
+                margin-top: 2em;
+            }
+        }
+
+        .you {
+            .chosen {
+                background: var(--rock-gradient);
+                box-shadow: var(--rock-side);
+            }
+        }
+
+        .house {
+            .chosen {
+                background: var(--scissors-gradient);
+                box-shadow: var(--scissors-side);
+            }
+        }
+
+        .result-text {
+            position: absolute;
+            top: 105%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: max-content;
+            text-align: center;
+            opacity: 0;
+            transition: opacity .3s ease;
+            pointer-events: none;
+
+            h2 {
+                font-weight: 800;
+                text-transform: uppercase;
+                color: white;
+                font-size: 3.5rem;
+            }
+
+            button {
+                border: none;
+                margin-top: .3em;
+                background: white;
+                padding: 1em 0 1.2em;
+                width: 100%;
+                border-radius: .5em;
+                font-size: 1rem;
+                text-transform: uppercase;
+                color: var(--dark-text);
+                letter-spacing: 2px;
+                font-weight: 700;
+                cursor: pointer;
             }
         }
     }
