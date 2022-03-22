@@ -222,37 +222,37 @@ function changeMode() {
   
         <div class="scissors-container-b container">
           <button aria-label="scissors button" data-rank="0">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-scissors.svg" alt="paper">
-            </div>
+            </span>
           </button>
         </div>
         <div class="paper-container-b container">
           <button aria-label="paper button" data-rank="1">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-paper.svg" alt="paper">
-            </div>
+            </span>
           </button>
         </div>
         <div class="rock-container-b container">
           <button aria-label="rock button" data-rank="2">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-rock.svg" alt="paper">
-            </div>
+            </span>
           </button>
         </div>
         <div class="lizard-container-b container">
           <button aria-label="lizard button" data-rank="3">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-lizard.svg" alt="scissors">
-            </div>
+            </span>
           </button>
         </div>
         <div class="spock-container-b container">
           <button aria-label="spock button" data-rank="4">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-spock.svg" alt="rock">
-            </div>
+            </span>
           </button>
         </div>`;
         list.querySelectorAll('p').forEach(p => {
@@ -276,23 +276,23 @@ function changeMode() {
   
         <div class="paper-container container">
           <button aria-label="paper button" data-rank="1">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-paper.svg" alt="paper">
-            </div>
+            </span>
           </button>
         </div>
         <div class="scissors-container container">
           <button aria-label="scissors button" data-rank="0">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-scissors.svg" alt="scissors">
-            </div>
+            </span>
           </button>
         </div>
         <div class="rock-container container">
           <button aria-label="rock button" data-rank="2">
-            <div class="inner">
+            <span class="inner">
               <img src="images/icon-rock.svg" alt="rock">
-            </div>
+            </span>
           </button>
         </div>`;
 
