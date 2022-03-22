@@ -87,11 +87,16 @@ function displayResult(player, ai) {
 
         if ((player + 1) % 5 === ai || (player + 3) % 5 === ai) {
             result = 'you win';
+            audio.src = 'win.mp3';
+            audio.volume = .6;
             score++;
         } else if (player === ai) {
             result = 'draw';
+            audio.src = 'draw.wav';
         } else {
             result = 'you lose';
+            audio.src = 'boo.mp3';
+            audio.volume = .3;
             score--;
         }
     } else {
