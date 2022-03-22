@@ -80,10 +80,11 @@ body main .head .mode p {
 
 body main .head .score-container {
   background: white;
-  padding: .7em 1.7em;
+  padding: 1em 1.7em;
   border-radius: 5px;
   position: relative;
   cursor: default;
+  text-align: center;
 }
 
 body main .head .score-container #reset {
@@ -131,7 +132,17 @@ body main .head .score-container .score {
   color: var(--dark-text);
 }
 
+body main .shape.five {
+  font-size: clamp(1rem, 2vw, 1.2em);
+}
+
+body main .shape.five .container button {
+  width: calc(var(--button-size) - 25px);
+  height: calc(var(--button-size) - 25px);
+}
+
 body main .shape {
+  font-size: clamp(1rem, 2vw, 1.35em);
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -225,8 +236,6 @@ body main .shape .scissors-container-b {
 }
 
 body main .shape .scissors-container-b button {
-  width: calc(var(--button-size) - 25px);
-  height: calc(var(--button-size) - 25px);
   background: var(--scissors-gradient);
   -webkit-box-shadow: var(--scissors-side);
           box-shadow: var(--scissors-side);
@@ -244,8 +253,6 @@ body main .shape .paper-container-b {
 }
 
 body main .shape .paper-container-b button {
-  width: calc(var(--button-size) - 25px);
-  height: calc(var(--button-size) - 25px);
   background: var(--paper-gradient);
   -webkit-box-shadow: var(--paper-side);
           box-shadow: var(--paper-side);
@@ -263,8 +270,6 @@ body main .shape .rock-container-b {
 }
 
 body main .shape .rock-container-b button {
-  width: calc(var(--button-size) - 25px);
-  height: calc(var(--button-size) - 25px);
   background: var(--rock-gradient);
   -webkit-box-shadow: var(--rock-side);
           box-shadow: var(--rock-side);
@@ -282,8 +287,6 @@ body main .shape .lizard-container-b {
 }
 
 body main .shape .lizard-container-b button {
-  width: calc(var(--button-size) - 25px);
-  height: calc(var(--button-size) - 25px);
   background: var(--lizard-gradient);
   -webkit-box-shadow: var(--lizard-side);
           box-shadow: var(--lizard-side);
@@ -301,8 +304,6 @@ body main .shape .spock-container-b {
 }
 
 body main .shape .spock-container-b button {
-  width: calc(var(--button-size) - 25px);
-  height: calc(var(--button-size) - 25px);
   background: var(--spock-gradient);
   -webkit-box-shadow: var(--spock-side);
           box-shadow: var(--spock-side);
@@ -310,6 +311,20 @@ body main .shape .spock-container-b button {
 
 body main .shape .spock-container-b button img {
   width: 40px;
+}
+
+body .attribution {
+  display: none;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #cecece;
+}
+
+body .attribution a {
+  color: gray;
 }
 
 main .switch {
@@ -324,6 +339,12 @@ main .switch {
   opacity: .9;
   font-size: 1rem;
   cursor: pointer;
+  -webkit-transition: opacity .2s ease;
+  transition: opacity .2s ease;
+}
+
+main .switch:hover {
+  opacity: .75;
 }
 
 main .rules {
@@ -348,7 +369,7 @@ main .rules {
 }
 
 main .rules:hover {
-  background-color: #fff1;
+  background-color: #fff2;
 }
 
 main .modal {
@@ -356,10 +377,10 @@ main .modal {
   background: white;
   inset: 0;
   padding: 2em 0;
-  -webkit-transition: opacity .3s ease, -webkit-transform .3s ease;
-  transition: opacity .3s ease, -webkit-transform .3s ease;
-  transition: transform .3s ease, opacity .3s ease;
-  transition: transform .3s ease, opacity .3s ease, -webkit-transform .3s ease;
+  -webkit-transition: opacity .2s ease, -webkit-transform .2s ease;
+  transition: opacity .2s ease, -webkit-transform .2s ease;
+  transition: transform .2s ease, opacity .2s ease;
+  transition: transform .2s ease, opacity .2s ease, -webkit-transform .2s ease;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   display: -ms-grid;
@@ -403,13 +424,14 @@ main .result-container {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   margin: 7em auto;
   position: relative;
 }
 
 main .result-container .result {
-  width: 40%;
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
   text-align: center;
   -webkit-transition: -webkit-transform .3s ease;
   transition: -webkit-transform .3s ease;
@@ -546,7 +568,7 @@ main .result-container .result-text h2 {
   font-weight: 800;
   text-transform: uppercase;
   color: white;
-  font-size: 3.5rem;
+  font-size: 3rem;
 }
 
 main .result-container .result-text button {
@@ -591,7 +613,7 @@ main .result-container .result-text button:hover {
     font-size: 1rem;
   }
   body main .head .score-container .score {
-    font-size: 4rem;
+    font-size: 3rem;
   }
   body main .shape.five .container button {
     width: calc(var(--button-size) - 45px);
@@ -599,7 +621,8 @@ main .result-container .result-text button:hover {
   }
   body main .switch {
     bottom: 20px;
-    left: 50px;
+    left: 100px;
+    font-weight: 700;
     font-size: 1.5rem;
   }
   body main .rules {
@@ -661,6 +684,7 @@ main .result-container .result-text button:hover {
             order: -1;
     margin: 0;
     margin-bottom: 3em;
+    font-weight: 600;
   }
   body main .result-container .result .base .pulse {
     width: 450px;
@@ -678,6 +702,9 @@ main .result-container .result-text button:hover {
   }
   body main .result-container .result-text {
     top: 50%;
+  }
+  body .attribution {
+    display: unset;
   }
 }
 /*# sourceMappingURL=style.css.map */

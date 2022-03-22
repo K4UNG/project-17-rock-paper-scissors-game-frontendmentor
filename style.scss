@@ -79,10 +79,11 @@ body {
 
             .score-container {
                 background: white;
-                padding: .7em 1.7em;
+                padding: 1em 1.7em;
                 border-radius: 5px;
                 position: relative;
                 cursor: default;
+                text-align: center;
 
                 #reset {
                     position: absolute;
@@ -129,7 +130,21 @@ body {
             }
         }
 
+        .shape.five {
+            font-size: clamp(1rem, 2vw, 1.2em);
+
+            .container {
+
+                button {
+                    width: calc(var(--button-size) - 25px);
+                    height: calc(var(--button-size) - 25px);
+                }
+
+            }
+        }
+
         .shape {
+            font-size: clamp(1rem, 2vw, 1.35em);
             width: max-content;
             margin: 8em auto;
             position: relative;
@@ -206,8 +221,6 @@ body {
                 transform: translate(-50%, -50%);
 
                 button {
-                    width: calc(var(--button-size) - 25px);
-                    height: calc(var(--button-size) - 25px);
                     background: var(--scissors-gradient);
                     box-shadow: var(--scissors-side);
 
@@ -223,8 +236,6 @@ body {
                 transform: translate(55%, -40%);
 
                 button {
-                    width: calc(var(--button-size) - 25px);
-                    height: calc(var(--button-size) - 25px);
                     background: var(--paper-gradient);
                     box-shadow: var(--paper-side);
 
@@ -240,8 +251,6 @@ body {
                 transform: translate(15%, 40%);
 
                 button {
-                    width: calc(var(--button-size) - 25px);
-                    height: calc(var(--button-size) - 25px);
                     background: var(--rock-gradient);
                     box-shadow: var(--rock-side);
 
@@ -257,8 +266,6 @@ body {
                 transform: translate(-15%, 40%);
 
                 button {
-                    width: calc(var(--button-size) - 25px);
-                    height: calc(var(--button-size) - 25px);
                     background: var(--lizard-gradient);
                     box-shadow: var(--lizard-side);
 
@@ -274,8 +281,6 @@ body {
                 transform: translate(-50%, -40%);
 
                 button {
-                    width: calc(var(--button-size) - 25px);
-                    height: calc(var(--button-size) - 25px);
                     background: var(--spock-gradient);
                     box-shadow: var(--spock-side);
 
@@ -284,6 +289,18 @@ body {
                     }
                 }
             }
+        }
+    }
+    .attribution {
+        display: none;
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgb(206, 206, 206);
+
+        a {
+            color: gray;
         }
     }
 }
@@ -300,7 +317,13 @@ main {
         opacity: .9;
         font-size: 1rem;
         cursor: pointer;
+        transition: opacity .2s ease;
+
+        &:hover {
+            opacity: .75;
+        }
     }
+
     .rules {
         padding: .4em 0;
         width: 100px;
@@ -320,7 +343,7 @@ main {
         transition: background-color .2s ease;
 
         &:hover {
-            background-color: #fff1;
+            background-color: #fff2;
         }
     }
 
@@ -329,8 +352,8 @@ main {
         background: white;
         inset: 0;
         padding: 2em 0;
-        transition: transform .3s ease,
-                    opacity .3s ease;
+        transition: transform .2s ease,
+                    opacity .2s ease;
         transform: translateY(100%);
         display: grid;
         place-items: center;
@@ -370,12 +393,12 @@ main {
         align-items: flex-start;
         justify-content: space-between;
         width: 100%;
-        max-width: 500px;
+        max-width: 600px;
         margin: 7em auto;
         position: relative;
 
         .result {
-            width: 40%;
+            flex-basis: 40%;
             text-align: center;
             transition: transform .3s ease;
 
@@ -489,7 +512,7 @@ main {
                 font-weight: 800;
                 text-transform: uppercase;
                 color: white;
-                font-size: 3.5rem;
+                font-size: 3rem;
             }
 
             button {
@@ -548,7 +571,7 @@ main {
                         font-size: 1rem;
                     }
                     .score {       
-                        font-size: 4rem;
+                        font-size: 3rem;
                     }
                 }
             }
@@ -564,7 +587,8 @@ main {
 
             .switch {
                 bottom: 20px;
-                left: 50px;
+                left: 100px;
+                font-weight: 700;
                 font-size: 1.5rem;
             }
 
@@ -620,6 +644,7 @@ main {
                         order: -1;
                         margin: 0;
                         margin-bottom: 3em;
+                        font-weight: 600;
                     }
 
                     .base {
@@ -649,6 +674,8 @@ main {
                 }
             }
         }
-
+        .attribution {
+            display: unset;
+        }
     }
 }

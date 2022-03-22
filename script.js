@@ -13,6 +13,11 @@ const results = document.querySelector('.result-container');
 const resultText = document.querySelector('.result-text');
 const triangleReplay = resultText.querySelector('button');
 
+let audio = new Audio();
+const press = new Audio();
+press.src = 'press.mp3';
+press.volume = .5;
+
 let you;
 let house;
 
@@ -73,14 +78,6 @@ closeBtn.onclick = () => {
     }
 }
 
-// triangleBtns.forEach(btn => {
-//     btn.onclick = () => {
-//         you = btn.dataset.rank;
-//         house = Math.floor(Math.random() * 3);
-//         displayResult(parseInt(you), parseInt(house));
-//     }
-// });
-
 function displayResult(player, ai) {
     mode.style.display = 'none';
     let result;
@@ -101,11 +98,16 @@ function displayResult(player, ai) {
 
         if ((player + 2) % 3 === ai) {
             result = 'you lose';
+            audio.src = 'boo.mp3';
+            audio.volume = .3;
             score--;
         } else if (player === ai) {
             result = 'draw';
+            audio.src = 'draw.wav';
         } else {
             result = 'you win';
+            audio.src = 'win.mp3';
+            audio.volume = .6;
             score++;
         }
 
@@ -126,6 +128,7 @@ function displayResult(player, ai) {
 
     resultText.querySelector('h2').textContent = result;
     triangleReplay.onclick = () => {
+        audio.pause();
         results.style.display = 'none';
         triangle.style.display = 'block';
         house.classList.remove('shown');
@@ -147,6 +150,7 @@ function displayResult(player, ai) {
                 house.parentElement.classList.add('win');
             }
             setTimeout(() => {
+                audio.play();
                 if (document.body.clientWidth >= 800) {
                     house.closest('.result').style.transform = 'translateX(120px)';
                     you.closest('.result').style.transform = 'translateX(-120px)';
@@ -293,6 +297,7 @@ function changeMode() {
 
     triangleBtns.forEach(btn => {
         btn.onclick = () => {
+          press.play();
             you = btn.dataset.rank;
             house = Math.floor(Math.random() * 3);
             displayResult(parseInt(you), parseInt(house));
