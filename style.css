@@ -36,7 +36,7 @@
   --triangle-size: 220px;
 }
 
-body {
+.body {
   background: var(--main-bg);
   padding: 2em;
   position: relative;
@@ -44,11 +44,11 @@ body {
   overflow: hidden;
 }
 
-body button {
+.body button {
   -webkit-tap-highlight-color: transparent;
 }
 
-body main .head {
+.body main .head {
   width: 100%;
   max-width: 800px;
   margin: auto;
@@ -66,11 +66,11 @@ body main .head {
           align-items: center;
 }
 
-body main .head .mode {
+.body main .head .mode {
   list-style: none;
 }
 
-body main .head .mode p {
+.body main .head .mode p {
   color: white;
   font-weight: 400;
   text-transform: uppercase;
@@ -78,7 +78,7 @@ body main .head .mode p {
   line-height: .8;
 }
 
-body main .head .score-container {
+.body main .head .score-container {
   background: white;
   padding: 1em 1.7em;
   border-radius: 5px;
@@ -87,7 +87,7 @@ body main .head .score-container {
   text-align: center;
 }
 
-body main .head .score-container #reset {
+.body main .head .score-container #reset {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -107,15 +107,15 @@ body main .head .score-container #reset {
   opacity: 0;
 }
 
-body main .head .score-container #reset:focus {
+.body main .head .score-container #reset:focus {
   opacity: 1;
 }
 
-body main .head .score-container:hover #reset {
+.body main .head .score-container:hover #reset {
   opacity: 1;
 }
 
-body main .head .score-container h2 {
+.body main .head .score-container h2 {
   font-size: .7rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -123,7 +123,7 @@ body main .head .score-container h2 {
   font-weight: 700;
 }
 
-body main .head .score-container .score {
+.body main .head .score-container .score {
   font-weight: 800;
   font-size: 3.5rem;
   text-align: center;
@@ -132,16 +132,16 @@ body main .head .score-container .score {
   color: var(--dark-text);
 }
 
-body main .shape.five {
+.body main .shape.five {
   font-size: clamp(1rem, 2vw, 1.2em);
 }
 
-body main .shape.five .container button {
+.body main .shape.five .container button {
   width: calc(var(--button-size) - 25px);
   height: calc(var(--button-size) - 25px);
 }
 
-body main .shape {
+.body main .shape {
   font-size: clamp(1rem, 2vw, 1.35em);
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -150,15 +150,15 @@ body main .shape {
   position: relative;
 }
 
-body main .shape > img {
+.body main .shape > img {
   width: var(--triangle-size);
 }
 
-body main .shape .container {
+.body main .shape .container {
   position: absolute;
 }
 
-body main .shape .container button {
+.body main .shape .container button {
   width: var(--button-size);
   height: var(--button-size);
   border-radius: 50%;
@@ -171,13 +171,13 @@ body main .shape .container button {
   transition: transform .15s, -webkit-transform .15s;
 }
 
-body main .shape .container button:hover, body main .shape .container button:focus {
-  -webkit-transform: scale(1.05);
-          transform: scale(1.05);
+.body main .shape .container button:hover, .body main .shape .container button:focus {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
   outline: none;
 }
 
-body main .shape .container button .inner {
+.body main .shape .container button .inner {
   position: absolute;
   inset: var(--button-border);
   background: white;
@@ -189,131 +189,131 @@ body main .shape .container button .inner {
           box-shadow: var(--inner-shadow);
 }
 
-body main .shape .paper-container {
+.body main .shape .paper-container {
   top: 0;
   left: 0;
   -webkit-transform: translate(-40%, -40%);
           transform: translate(-40%, -40%);
 }
 
-body main .shape .paper-container button {
+.body main .shape .paper-container button {
   background: var(--paper-gradient);
   -webkit-box-shadow: var(--paper-side);
           box-shadow: var(--paper-side);
 }
 
-body main .shape .scissors-container {
+.body main .shape .scissors-container {
   top: 0;
   right: 0;
   -webkit-transform: translate(40%, -40%);
           transform: translate(40%, -40%);
 }
 
-body main .shape .scissors-container button {
+.body main .shape .scissors-container button {
   background: var(--scissors-gradient);
   -webkit-box-shadow: var(--scissors-side);
           box-shadow: var(--scissors-side);
 }
 
-body main .shape .rock-container {
+.body main .shape .rock-container {
   bottom: 0;
   left: 50%;
   -webkit-transform: translate(-50%, 30%);
           transform: translate(-50%, 30%);
 }
 
-body main .shape .rock-container button {
+.body main .shape .rock-container button {
   background: var(--rock-gradient);
   -webkit-box-shadow: var(--rock-side);
           box-shadow: var(--rock-side);
 }
 
-body main .shape .scissors-container-b {
+.body main .shape .scissors-container-b {
   top: 0;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 
-body main .shape .scissors-container-b button {
+.body main .shape .scissors-container-b button {
   background: var(--scissors-gradient);
   -webkit-box-shadow: var(--scissors-side);
           box-shadow: var(--scissors-side);
 }
 
-body main .shape .scissors-container-b button img {
+.body main .shape .scissors-container-b button img {
   width: 40px;
 }
 
-body main .shape .paper-container-b {
+.body main .shape .paper-container-b {
   top: 30%;
   right: 0%;
   -webkit-transform: translate(55%, -40%);
           transform: translate(55%, -40%);
 }
 
-body main .shape .paper-container-b button {
+.body main .shape .paper-container-b button {
   background: var(--paper-gradient);
   -webkit-box-shadow: var(--paper-side);
           box-shadow: var(--paper-side);
 }
 
-body main .shape .paper-container-b button img {
+.body main .shape .paper-container-b button img {
   width: 40px;
 }
 
-body main .shape .rock-container-b {
+.body main .shape .rock-container-b {
   bottom: 0;
   right: 0;
   -webkit-transform: translate(15%, 40%);
           transform: translate(15%, 40%);
 }
 
-body main .shape .rock-container-b button {
+.body main .shape .rock-container-b button {
   background: var(--rock-gradient);
   -webkit-box-shadow: var(--rock-side);
           box-shadow: var(--rock-side);
 }
 
-body main .shape .rock-container-b button img {
+.body main .shape .rock-container-b button img {
   width: 40px;
 }
 
-body main .shape .lizard-container-b {
+.body main .shape .lizard-container-b {
   bottom: 0;
   left: 0;
   -webkit-transform: translate(-15%, 40%);
           transform: translate(-15%, 40%);
 }
 
-body main .shape .lizard-container-b button {
+.body main .shape .lizard-container-b button {
   background: var(--lizard-gradient);
   -webkit-box-shadow: var(--lizard-side);
           box-shadow: var(--lizard-side);
 }
 
-body main .shape .lizard-container-b button img {
+.body main .shape .lizard-container-b button img {
   width: 40px;
 }
 
-body main .shape .spock-container-b {
+.body main .shape .spock-container-b {
   top: 30%;
   left: 0;
   -webkit-transform: translate(-50%, -40%);
           transform: translate(-50%, -40%);
 }
 
-body main .shape .spock-container-b button {
+.body main .shape .spock-container-b button {
   background: var(--spock-gradient);
   -webkit-box-shadow: var(--spock-side);
           box-shadow: var(--spock-side);
 }
 
-body main .shape .spock-container-b button img {
+.body main .shape .spock-container-b button img {
   width: 40px;
 }
 
-body .attribution {
+.body .attribution {
   display: none;
   position: absolute;
   bottom: 5px;
@@ -323,7 +323,7 @@ body .attribution {
   color: #cecece;
 }
 
-body .attribution a {
+.body .attribution a {
   color: gray;
 }
 
@@ -411,6 +411,11 @@ main .modal .wrapper #close {
   cursor: pointer;
 }
 
+main .modal .wrapper #close:hover img {
+  -webkit-filter: invert(13%) sepia(91%) saturate(4811%) hue-rotate(17deg) brightness(73%) contrast(126%);
+          filter: invert(13%) sepia(91%) saturate(4811%) hue-rotate(17deg) brightness(73%) contrast(126%);
+}
+
 main .modal .wrapper #close img {
   width: 100%;
 }
@@ -461,8 +466,8 @@ main .result-container .result .base .pulse {
 }
 
 main .result-container .result .base.win .pulse {
-  -webkit-animation: 2s pulse ease-in-out infinite;
-          animation: 2s pulse ease-in-out infinite;
+  -webkit-animation: 3s pulse ease-in-out infinite;
+          animation: 3s pulse ease-in-out infinite;
 }
 
 main .result-container .result .base .pulse:nth-child(2) {
@@ -478,6 +483,16 @@ main .result-container .result .base .pulse:nth-child(3) {
 main .result-container .result .base .pulse:nth-child(4) {
   -webkit-animation-delay: 1.5s;
           animation-delay: 1.5s;
+}
+
+main .result-container .result .base .pulse:nth-child(5) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+main .result-container .result .base .pulse:nth-child(6) {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
 }
 
 @-webkit-keyframes pulse {
@@ -605,34 +620,34 @@ main .result-container .result-text button:hover {
     --spock-side-result: 0 12px rgb(54, 129, 148);
     --inner-shadow: inset 4px 8px #0003;
   }
-  body main .head .mode p {
+  .body main .head .mode p {
     font-size: 2.3rem;
     font-weight: 700;
   }
-  body main .head .score-container h2 {
+  .body main .head .score-container h2 {
     font-size: 1rem;
   }
-  body main .head .score-container .score {
+  .body main .head .score-container .score {
     font-size: 3rem;
   }
-  body main .shape.five .container button {
+  .body main .shape.five .container button {
     width: calc(var(--button-size) - 45px);
     height: calc(var(--button-size) - 45px);
   }
-  body main .switch {
+  .body main .switch {
     bottom: 20px;
     left: 100px;
     font-weight: 700;
     font-size: 1.5rem;
   }
-  body main .rules {
+  .body main .rules {
     bottom: 30px;
     right: 30px;
     left: unset;
     -webkit-transform: unset;
             transform: unset;
   }
-  body main .modal {
+  .body main .modal {
     background: #0007;
     -webkit-transform: unset;
             transform: unset;
@@ -641,7 +656,7 @@ main .result-container .result-text button:hover {
     -webkit-transform: scale(1.3);
             transform: scale(1.3);
   }
-  body main .modal .wrapper {
+  .body main .modal .wrapper {
     background: white;
     padding: 2em;
     padding-bottom: 0;
@@ -650,14 +665,14 @@ main .result-container .result-text button:hover {
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
   }
-  body main .modal .wrapper > img {
+  .body main .modal .wrapper > img {
     grid-column: 1/-1;
   }
-  body main .modal .wrapper h2 {
+  .body main .modal .wrapper h2 {
     -ms-grid-column-align: start;
         justify-self: start;
   }
-  body main .modal .wrapper #close {
+  .body main .modal .wrapper #close {
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
     grid-row: 1/2;
@@ -665,16 +680,16 @@ main .result-container .result-text button:hover {
     -ms-grid-column-align: end;
         justify-self: end;
   }
-  body main .result-container {
+  .body main .result-container {
     position: static;
   }
-  body main .result-container .result {
+  .body main .result-container .result {
     width: 45%;
     display: -ms-grid;
     display: grid;
     justify-items: center;
   }
-  body main .result-container .result h2 {
+  .body main .result-container .result h2 {
     font-size: 1.8rem;
     width: -webkit-max-content;
     width: -moz-max-content;
@@ -686,24 +701,24 @@ main .result-container .result-text button:hover {
     margin-bottom: 3em;
     font-weight: 600;
   }
-  body main .result-container .result .base .pulse {
+  .body main .result-container .result .base .pulse {
     width: 450px;
     height: 450px;
   }
-  body main .result-container .result .base .chosen {
+  .body main .result-container .result .base .chosen {
     width: calc(var(--button-size) * 1.3);
     height: calc(var(--button-size) * 1.3);
   }
-  body main .result-container .result .base .chosen .circle {
+  .body main .result-container .result .base .chosen .circle {
     inset: calc(var(--button-border) * 1.3);
   }
-  body main .result-container .result .base .chosen .circle img {
+  .body main .result-container .result .base .chosen .circle img {
     width: 80px;
   }
-  body main .result-container .result-text {
+  .body main .result-container .result-text {
     top: 50%;
   }
-  body .attribution {
+  .body .attribution {
     display: unset;
   }
 }

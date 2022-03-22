@@ -15,100 +15,106 @@
 </head>
 <body>
 
-  <main>
-    <div class="head">
-      <ul class="mode">
-        <li>
-          <p>rock</p>
-        </li>
-        <li>
-          <p>paper</p>
-        </li>
-        <li>
-          <p>scissors</p>
-        </li>
-        <li>
-          <p>lizard</p>
-        </li>
-        <li>
-          <p>spock</p>
-        </li>
-      </ul>
+  <div class="body">
+    <main>
+      <div class="head">
+        <ul class="mode">
+          <li>
+            <p>rock</p>
+          </li>
+          <li>
+            <p>paper</p>
+          </li>
+          <li>
+            <p>scissors</p>
+          </li>
+          <li>
+            <p>lizard</p>
+          </li>
+          <li>
+            <p>spock</p>
+          </li>
+        </ul>
 
-      <div class="score-container">
-        <button id="reset" aria-label="reset button">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
-          </svg>
-        </button>
-        <h2>score</h2>
-        <span class="score"></span>
+        <div class="score-container">
+          <button id="reset" aria-label="reset button">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+            </svg>
+          </button>
+          <h2>score</h2>
+          <span class="score"></span>
+        </div>
       </div>
-    </div>
-    
-    <div class="shape">
-      <!-- current mode -->
-    </div>
+      
+      <div class="shape">
+        <!-- current mode -->
+      </div>
 
-    <div class="result-container">
-      <div class="you result">
+      <div class="result-container">
+        <div class="you result">
 
-          <div class="base">
-            <span class="pulse"></span>
-            <span class="pulse"></span>
-            <span class="pulse"></span>
-            <span class="pulse"></span>
+            <div class="base">
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
 
-            <div class="chosen shown">
-              <div class="circle">
-                <img src="images/icon-rock.svg" alt="rock">
+              <div class="chosen shown">
+                <div class="circle">
+                  <img src="images/icon-rock.svg" alt="rock">
+                </div>
               </div>
+
             </div>
+            <h2>you picked</h2>
+        </div>
+
+        <div class="house result">
+
+            <div class="base">
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+              <span class="pulse"></span>
+
+              <div class="chosen">
+                <div class="circle">
+                  <img src="images/icon-scissors.svg" alt="rock">
+                </div>
+              </div>
 
           </div>
-          <h2>you picked</h2>
-      </div>
-
-      <div class="house result">
-
-          <div class="base">
-            <span class="pulse"></span>
-            <span class="pulse"></span>
-            <span class="pulse"></span>
-            <span class="pulse"></span>
-
-            <div class="chosen">
-              <div class="circle">
-                <img src="images/icon-scissors.svg" alt="rock">
-              </div>
-            </div>
-
+          <h2>the house picked</h2>
         </div>
-        <h2>the house picked</h2>
+
+        <div class="result-text">
+          <h2>draw</h2>
+          <button>play again</button>
+        </div>
       </div>
 
-      <div class="result-text">
-        <h2>draw</h2>
-        <button>play again</button>
-      </div>
-    </div>
+      <button class="switch">switch mode</button>
+      <button class="rules">rules</button>
 
-    <button class="switch">switch mode</button>
-    <button class="rules">rules</button>
-
-    <div class="modal">
-      <div class="wrapper">
-        <h2>rules</h2>
-        <img src="images/image-rules.svg" alt="rules">
-        <button aria-label="close button" id="close"><img src="images/icon-close.svg" alt=""></button>
+      <div class="modal">
+        <div class="wrapper">
+          <h2>rules</h2>
+          <img src="images/image-rules.svg" alt="rules">
+          <button aria-label="close button" id="close"><img src="images/icon-close.svg" alt=""></button>
+        </div>
       </div>
-    </div>
+      
+    </main>
     
-  </main>
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://www.github.com/k4ung">K4UNG</a>.
-  </footer>
+    <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="https://www.github.com/k4ung">K4UNG</a>.
+    </footer>
+  </div>
 </body>
 </html>

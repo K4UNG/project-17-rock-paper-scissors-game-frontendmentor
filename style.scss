@@ -41,7 +41,7 @@
     --triangle-size: 220px;
 }
 
-body {
+.body {
     background: var(--main-bg);
     padding: 2em;
     position: relative;
@@ -167,7 +167,7 @@ body {
 
                     &:hover,
                     &:focus {
-                        transform: scale(1.05);
+                        transform: scale(1.1);
                         outline: none;
                     }
 
@@ -377,6 +377,10 @@ main {
                 background: none;
                 width: 30px;
                 cursor: pointer;
+
+                &:hover img {
+                    filter: invert(13%) sepia(91%) saturate(4811%) hue-rotate(17deg) brightness(73%) contrast(126%);
+                }
     
                 img {
                     width: 100%;
@@ -422,7 +426,7 @@ main {
                 }
 
                 &.win .pulse {
-                    animation: 2s pulse ease-in-out infinite;
+                    animation: 3s pulse ease-in-out infinite;
                 }
 
                 .pulse:nth-child(2) {
@@ -435,6 +439,14 @@ main {
 
                 .pulse:nth-child(4) {
                     animation-delay: 1.5s;
+                }
+
+                .pulse:nth-child(5) {
+                    animation-delay: 2s;
+                }
+
+                .pulse:nth-child(6) {
+                    animation-delay: 2.5s;
                 }
 
                 @keyframes pulse {
@@ -556,7 +568,7 @@ main {
         --inner-shadow: inset 4px 8px #0003;
     }
 
-    body {
+    .body {
         main {
             .head {
                 .mode {
